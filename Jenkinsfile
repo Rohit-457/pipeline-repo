@@ -8,7 +8,7 @@ pipeline {
 			steps{sh 'mvn install'}
 		}
 		stage (Deploy){
-			steps{sh 'cp target/pipline-repo /home/rohit/Documents/devops/apache-tomcat-9.0.93/webapps'}
+			steps{sh 'cp target/pipeline-repo /home/rohit/Documents/devops/apache-tomcat-9.0.93/webapps'}
 		}
 	}
 }
