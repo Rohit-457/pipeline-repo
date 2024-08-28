@@ -1,5 +1,9 @@
 pipeline {
-	agent any 
+	agent any
+	triggers {
+ 		 pollSCM '* * * * * '
+		}
+ 
 	stages {
 		stage (checkout){
 			steps{git 'https://github.com/Rohit-457/pipeline-repo.git'}
