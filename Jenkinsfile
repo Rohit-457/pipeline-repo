@@ -13,6 +13,6 @@ pipeline {
                          }}
                 stage('Deployment'){
                     steps {
-                        sh 'cp target/home/ROHIT/SLAVEDIR/apache-tomcat-9.0.93'
+                        sh 'cp webapps/pipeline-repo /home/ROHIT/SLAVEDIR/apache-tomcat-9.0.93'
                         }}
 }}
