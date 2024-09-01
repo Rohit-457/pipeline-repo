@@ -1,18 +1,19 @@
 pipeline {
-	agent any
-	triggers {
- 		 pollSCM '* * * * * '
-		}
- 
-	stages {
-		stage (checkout){
-			steps{git 'https://github.com/Rohit-457/pipeline-repo.git'}
-		}
-		stage (build){
-			steps{sh 'mvn install'}
-		}
-		stage (Deploy){
-			steps{sh 'cp target/pipeline-repo.war /home/rohit/Documents/devops/apache-tomcat-9.0.93/webapps'}
-		}
+	agent{
+	label 'NEW-SLAVE-LABEL'
 	}
-}
+	stages {
+	    stage('Checkout') {
+	        steps {
+			checkout scm			       
+		      }}
+		stage('Build') {
+	           steps {
+			  sh 'JAVA_HOME=/home/ROHIT/SLAVEDIR/jdk-11.0.24 /home/ROHIT/SLAVEDIR/apache-maven-3.9.8/bin/mvn install'
+	                 }}
+		stage('Deployment'){
+		    steps {
+			sh 'cp target/home/ROHIT/SLAVEDIR/apache-tomcat-9.0.93'
+			}}	
+}}
+
